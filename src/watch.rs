@@ -114,6 +114,7 @@ impl WatchSystem {
             while let Ok(_event) = self.watch_rx.try_recv() {}
             return;
         }
+        tracing::info!("Watch event: {event:?}");
 
         // Check each path in the event for a match.
         match event.event.kind {
