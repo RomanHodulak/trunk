@@ -313,6 +313,7 @@ async fn handle_ws(mut ws: WebSocket, state: Arc<State>) {
         }
         build_done = rx.recv() => build_done.is_ok(),
     } {
+        tracing::info!("Reload triggered");
         let ws_send = ws.send(axum::extract::ws::Message::Text(
             r#"{"reload": true}"#.to_owned(),
         ));

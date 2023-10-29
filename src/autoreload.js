@@ -10,7 +10,6 @@
                 // trunk due to it being killed, so it will have
                 // rebuilt on restart)
                 var ws = new WebSocket(url);
-                ws.onopen = () => window.location.reload();
                 ws.onclose = reload_upon_connect;
             },
             poll_interval);
